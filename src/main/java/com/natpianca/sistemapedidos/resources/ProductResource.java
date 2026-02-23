@@ -13,13 +13,13 @@ import com.natpianca.sistemapedidos.entities.Product;
 import com.natpianca.sistemapedidos.services.ProductService;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping("/products")
 public class ProductResource {
 
 	@Autowired
 	private ProductService service;
 
-	@GetMapping
+	@GetMapping("/getall")
 	public ResponseEntity<List<Product>> findAll() {
 		List<Product> list = service.findAll();
 		return ResponseEntity.ok().body(list);
@@ -28,6 +28,10 @@ public class ProductResource {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
 		Product obj = service.findById(id);
+		obj.getCategories().size();
 		return ResponseEntity.ok().body(obj);
 	}
+
+
+
 }

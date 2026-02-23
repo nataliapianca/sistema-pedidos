@@ -33,10 +33,12 @@ public class User implements Serializable {
 	private List<Order> orders = new ArrayList<>();
 
 	public User() {
+        //this.orders = new ArrayList<>();
 
 	}
 
 	public User(Long id, String name, String email, String phone, String password) {
+        this.orders = new ArrayList<>();
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -83,7 +85,6 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 	public List<Order> getOrders() {
 		return orders;
